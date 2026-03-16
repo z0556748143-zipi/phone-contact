@@ -5,6 +5,16 @@ const selectors={
     phoneInput: document.querySelector('#phone-input'),
     contactsContainer: document.querySelector('#contacts')
 };
+selectors.phoneInput.addEventListener('keydown', (event) => {
+    const allowedChars = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-'];
+    const functionalKeys = ['Backspace', 'ArrowLeft', 'ArrowRight', 'Tab', 'Delete'];
+
+    if (!allowedChars.includes(event.key) && !functionalKeys.includes(event.key)) {
+        event.preventDefault();//מונע את ההצגה של התו על המסך, כי בעקרון אינפוט גורם לי שאני יראה מה שכותיבם 
+    }
+});
+
+
 selectors.form.addEventListener('submit', (event) => {   
      event.preventDefault();
      if (selectors.nameInput.value.trim() === '' || selectors.phoneInput.value.trim() === '') {
