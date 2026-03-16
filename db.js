@@ -21,7 +21,7 @@ anshey_Kesher.push({ id: Date.now(),name: name, phone: phone });
 
 const createContactElement = (someOne) => {
     const conta = document.createElement("div");
-    conta.innerHTML=`name: ${someOne.name}  phone: ${someOne.phone}`;
+    conta.textContent=`name: ${someOne.name}  phone: ${someOne.phone}`;
     return conta;
 }
 export const render =()=>{
