@@ -25,10 +25,17 @@ const categories = [
         const opt = document.createElement("option");
         opt.value = item.emoji;
         opt.textContent = item.text;
+
+// הבדיקה המפורסמת:
+        // אם זה חדש - someOne.category יהיה ריק והתנאי הזה פשוט לא יקרה לאף אחד
+        if (someOne.category === item.emoji) {
+            opt.selected = true; 
+        }
+
         select.append(opt); // פה האופציה נכנסת לתוך ה-select
     }
 select.addEventListener('change', () => {
-    someOne.category = select.value;
+   update(someOne.id, select.value);
     console.log("המערך המעודכן:", anshey_Kesher);
 });
 
@@ -37,9 +44,16 @@ select.addEventListener('change', () => {
 
     return conta;
 };
+export const update=(id,catagory)=>{
+const contact = anshey_Kesher.find((c) => c.id === id);
+if (contact) {
+    contact.category = catagory;
+    saveToStorage();
+}
+}
 
 export const render =()=>{
-    return anshey_Kesher.map(createContactElement) || [];
+    return anshey_Kesher.map(createContactElement);
 };
 
 
