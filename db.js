@@ -1,22 +1,12 @@
-const anshey_Kesher=[
-    {
-        id: Date.now(),
-        name: "Chaim Cohen",
-        phone: "050-1234567"
-    },
-    {
-        id: Date.now(),
-        name: "Sara Levi",
-        phone: "052-7654321"
-    },
-    {
-        id: Date.now(),
-        name: "David Katz",
-        phone: "054-9876543"
-    }
-]
+let anshey_Kesher = JSON.parse(localStorage.getItem('myContacts')) || [];
+// פונקציה לשמירת הנתונים ב-Local Storage
+const saveToStorage = () => {
+    localStorage.setItem('myContacts', JSON.stringify(anshey_Kesher));
+};
+
 export const createObjectAnsheyKesher=(name, phone)=>{
 anshey_Kesher.push({ id: Date.now(),name: name, phone: phone });
+saveToStorage();
 }
 
 const createContactElement = (someOne) => {
@@ -49,7 +39,7 @@ select.addEventListener('change', () => {
 };
 
 export const render =()=>{
-    return anshey_Kesher.map(createContactElement);
+    return anshey_Kesher.map(createContactElement) || [];
 };
 
 
