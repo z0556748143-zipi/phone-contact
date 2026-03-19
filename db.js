@@ -41,6 +41,13 @@ select.addEventListener('change', () => {
 
     // עכשיו conta מכיל גם את הטקסט וגם את התיבה
     conta.append(select); 
+conta.addEventListener('click', (event) => {
+    // בדיקה: אם לחצו על ה-select של האימוג'ים, אל תעבור דף
+    if (event.target.tagName !== 'SELECT') {
+        // מעבר לדף החדש עם "פתק" (ID) בכתובת למעלה
+        window.location.href = `contact-details.html?id=${someOne.id}`;
+    }
+});
 
     return conta;
 };
