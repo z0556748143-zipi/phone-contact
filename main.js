@@ -33,3 +33,18 @@ selectors.form.addEventListener('submit', (event) => {
         selectors.phoneInput.value = '';
 
 });
+
+document.querySelector('#print-btn').addEventListener('click', () => {
+    window.print();
+});
+
+document.querySelector('#delete-all-btn').addEventListener('click', () => {
+    if (confirm("האם את בטוחה שברצונך למחוק את כל אנשי הקשר?")) {
+        localStorage.removeItem('myContacts'); // מוחק מהמחסן
+        location.reload(); // מרענן את הדף כדי שהרשימה תיעלם מהמסך
+    }
+});
+
+document.querySelector('#close-btn').addEventListener('click', () => {
+    window.close();
+});

@@ -45,7 +45,7 @@ conta.addEventListener('click', (event) => {
     // בדיקה: אם לחצו על ה-select של האימוג'ים, אל תעבור דף
     if (event.target.tagName !== 'SELECT') {
         // מעבר לדף החדש עם "פתק" (ID) בכתובת למעלה
-        window.location.href = `contact-details.html?id=${someOne.id}`;
+        window.location.href = `details-contact.html?id=${someOne.id}`;
     }
 });
 
@@ -62,5 +62,3 @@ if (contact) {
 export const render =()=>{
     return anshey_Kesher.map(createContactElement);
 };
-
-
